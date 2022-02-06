@@ -33,7 +33,9 @@ public class Robar {
         li = pillarLinks(driver);
         champions = robarInfo(driver,driverWait,li,champions);
 
+        CSV csv = new CSV(champions);
         return champions;
+
     }
 
     /**

@@ -1,22 +1,34 @@
 package com.example.loljbc.modelo;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Champion {
+public class ChampionFXML {
 
-    String nombre;
-    String rol;
-    String historia;
+    private final StringProperty nombre;
+    private final StringProperty rol;
+    private final StringProperty historia;
 
 
+    public StringProperty nombreProperty() {
+        return nombre;
+    }
+    public StringProperty rolProperty() {
+        return rol;
+    }
+    public StringProperty historiaProperty() {
+        return historia;
+    }
 
     /**
      * Esto para pillar historia.
      * @return devuelve la historia.
      */
     public String getHistoria() {
-        return historia;
+        return historia.get();
     }
 
     /**
@@ -24,7 +36,7 @@ public class Champion {
      * @param historia recibe el que le vas a poner a la historia.
      */
     public void setHistoria(String historia) {
-        this.historia = historia;
+        this.historia.set(historia);
     }
 
     /**
@@ -32,7 +44,7 @@ public class Champion {
      * @return devuelve el nombre
      */
     public String getNombre() {
-        return nombre;
+        return nombre.get();
     }
 
     /**
@@ -40,7 +52,7 @@ public class Champion {
      * @param nombre recibe el que le vas a poner al nombre.
      */
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombre.set(nombre);
     }
 
     /**
@@ -48,7 +60,7 @@ public class Champion {
      * @return devuelve el rol.
      */
     public String getRol() {
-        return rol;
+        return rol.get();
     }
 
     /**
@@ -56,7 +68,7 @@ public class Champion {
      * @param rol recibe el que le vas a poner al rol.
      */
     public void setRol(String rol) {
-        this.rol = rol;
+        this.rol.set(rol);
     }
 
     /**
@@ -65,9 +77,9 @@ public class Champion {
      * @param rol recibe el rol que le vas a poner.
      * @param historia recibe la historia que le vas a poner.
      */
-    public Champion(String nombre, String rol, String historia){
-        this.nombre = nombre;
-        this.rol = rol;
-        this.historia = historia;
+    public ChampionFXML(String nombre, String rol, String historia){
+        this.nombre = new SimpleStringProperty(nombre);
+        this.rol = new SimpleStringProperty(rol);
+        this.historia = new SimpleStringProperty(historia);
     }
 }

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loljbc.controller.CampeonController">
+   <children>
+      <TabPane prefHeight="300.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Todo">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="lolTable" prefHeight="271.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nom" />
+                            <TableColumn fx:id="rolColumn" prefWidth="75.0" text="Rol" />
+                              <TableColumn fx:id="historiaColumn" prefWidth="435.0" text="Historia" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+               </content></Tab>
+            <Tab text="Luchador">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="lolTableLu" prefHeight="272.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="nombreColumn1" prefWidth="75.0" text="Nom" />
+                            <TableColumn fx:id="rolColumn1" prefWidth="75.0" text="Rol" />
+                              <TableColumn fx:id="historiaColumn1" prefWidth="435.0" text="Historia" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Tanque">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="lolTableTa" prefHeight="271.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="nombreColumn2" prefWidth="75.0" text="Nom" />
+                            <TableColumn fx:id="rolColumn2" prefWidth="75.0" text="Rol" />
+                              <TableColumn fx:id="historiaColumn2" prefWidth="435.0" text="Historia" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Asesino">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="lolTableAs" prefHeight="272.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="nombreColumn3" prefWidth="75.0" text="Nom" />
+                            <TableColumn fx:id="rolColumn3" prefWidth="75.0" text="Rol" />
+                              <TableColumn fx:id="historiaColumn3" prefWidth="435.0" text="Historia" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Mago">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="lolTableMa" prefHeight="272.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="nombreColumn4" prefWidth="75.0" text="Nom" />
+                            <TableColumn fx:id="rolColumn4" prefWidth="75.0" text="Rol" />
+                              <TableColumn fx:id="historiaColumn4" prefWidth="435.0" text="Historia" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Tirador">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="lolTableTi" prefHeight="272.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="nombreColumn5" prefWidth="75.0" text="Nom" />
+                            <TableColumn fx:id="rolColumn5" prefWidth="75.0" text="Rol" />
+                              <TableColumn fx:id="historiaColumn5" prefWidth="435.0" text="Historia" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Apoyo">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="lolTableAp" prefHeight="272.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="nombreColumn6" prefWidth="75.0" text="Nom" />
+                            <TableColumn fx:id="rolColumn6" prefWidth="75.0" text="Rol" />
+                              <TableColumn fx:id="historiaColumn6" prefWidth="435.0" text="Historia" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

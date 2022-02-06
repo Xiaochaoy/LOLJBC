@@ -59,6 +59,11 @@
             <artifactId>selenium-api</artifactId>
             <version>4.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.5.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -81,7 +86,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.loljbc/com.example.loljbc.HelloApplication</mainClass>
+                            <mainClass>com.example.loljbc/com.example.loljbc.Main</mainClass>
                         </configuration>
                     </execution>
                 </executions>
