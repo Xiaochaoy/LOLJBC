@@ -2,16 +2,11 @@
 
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loljbc.controller.EstadisticaController">
    <children>
-      <BarChart fx:id="barChart" disable="true" layoutX="50.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" fx:id="xAxis" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
+      <PieChart fx:id="pieChart" layoutX="50.0" layoutY="52.0" prefHeight="348.0" prefWidth="500.0" />
+      <Text layoutX="166.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30;" text="Proporción de Roles" />
    </children>
 </AnchorPane>

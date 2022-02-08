@@ -4,10 +4,13 @@ import com.example.loljbc.Main;
 import com.example.loljbc.modelo.ChampionFXML;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 
 public class CampeonController {
+
     @FXML
     private TableView<ChampionFXML> lolTable;
     @FXML

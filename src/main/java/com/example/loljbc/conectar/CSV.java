@@ -51,15 +51,4 @@ public class CSV {
         csvReader.close();
         return list;
     }
-
-    public List<String[]> readAll2() throws Exception {
-        Reader reader = Files.newBufferedReader(Paths.get("Estadisticas.csv"));
-        CSVReader csvReader = new CSVReader(reader);
-        List<String[]> list = new ArrayList<>();
-
-        list = csvReader.readAll();
-        reader.close();
-        csvReader.close();
-        return list;
-    }
 }

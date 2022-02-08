@@ -1,57 +1,47 @@
 package com.example.loljbc.controller;
 
+import com.example.loljbc.Main;
 import com.example.loljbc.conectar.CSV;
 import com.example.loljbc.modelo.ChampionFXML;
-import com.example.loljbc.modelo.Estadistica;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.fxml.Initializable;
+import javafx.scene.chart.*;
 
+import java.net.URL;
 import java.text.DateFormatSymbols;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
-public class EstadisticaController {
-
-    @FXML
-    private BarChart<String, Integer> barChart;
+public class EstadisticaController implements Initializable {
 
     @FXML
-    private CategoryAxis xAxis;
+    private PieChart pieChart;
 
-    private ObservableList<String> campeonNames = FXCollections.observableArrayList();
-    private List<String[]> estadisticas;
-    CSV csv = new CSV();
+    int[] stats;
 
-    @FXML
-    private void initialize() {
 
-        try {
-            estadisticas = csv.readAll2();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        for (String[] estadistica: estadisticas) {
-            campeonNames.add(estadistica[1]);
-        }
-        // Assign the month names as categories for the horizontal axis.
-    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        stats = Main.getStats();
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                new PieChart.Data("LUCHADOR",stats[0]),
+                new PieChart.Data("MAGO",stats[1]),
+                new PieChart.Data("ASESINO",stats[2]),
+                new PieChart.Data("TIRADOR",stats[3]),
+                new PieChart.Data("TANQUE",stats[4]),
+                new PieChart.Data("APOYO",stats[5]));
 
-    public void setPersonData(int cantidad) {
-        // Count the number of people having their birthday in a specific month.
-
-        XYChart.Series<String, Integer> series = new XYChart.Series<>();
-
-        // Create a XYChart.Data object for each month. Add it to the series.
-        for (int i = 0; i < cantidad; i++) {
-            series.getData().add(new XYChart.Data<>(campeonNames.get(i), i));
-        }
-
-        barChart.getData().add(series);
+        pieChartData.forEach(data ->
+                data.nameProperty().bind(
+                        Bindings.concat(
+                                data.getName(), " ", (int) data.getPieValue()
+                        )
+                ));
+        pieChart.getData().addAll(pieChartData);
     }
 }

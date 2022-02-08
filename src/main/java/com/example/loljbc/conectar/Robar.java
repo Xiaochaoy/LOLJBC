@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Robar {
-    public static List<Champion> start(){
+    public static void start(){
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\chaos\\IdeaProjects\\2nDAM\\LoLJBC\\src\\main\\resources\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         // desired.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options.setBinary(firefoxBinary));
@@ -34,8 +34,6 @@ public class Robar {
         champions = robarInfo(driver,driverWait,li,champions);
 
         CSV csv = new CSV(champions);
-        return champions;
-
     }
 
     /**

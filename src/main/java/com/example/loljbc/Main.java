@@ -2,11 +2,8 @@ package com.example.loljbc;
 
 import com.example.loljbc.conectar.CSV;
 import com.example.loljbc.conectar.Robar;
-import com.example.loljbc.conectar.RoboEstadistica;
 import com.example.loljbc.controller.CampeonController;
-import com.example.loljbc.controller.EstadisticaController;
 import com.example.loljbc.controller.RootLayoutController;
-import com.example.loljbc.modelo.Champion;
 import com.example.loljbc.modelo.ChampionFXML;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -29,8 +26,7 @@ public class Main extends Application {
     private BorderPane rootLayout;
     private ObservableList<ChampionFXML> campeonData = FXCollections.observableArrayList();
 
-    private int stats ;
-
+    public static int[] stats;
 
     private ObservableList<ChampionFXML> campeonDataLu = FXCollections.observableArrayList();
     private ObservableList<ChampionFXML> campeonDataTi = FXCollections.observableArrayList();
@@ -42,30 +38,45 @@ public class Main extends Application {
 
     public Main() {
         // Add some sample data
+        File file = new File("lol.csv");
         try {
             champions = csv.readAll();
-            stats = champions.size();
+            stats = new int[6];
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if (file.exists()){
+            for (String[] campeon: champions) {
+                campeonData.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
+                if (campeon[1].equals("LUCHADOR")){
+                    campeonDataLu.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
 
-        for (String[] campeon: champions) {
-            campeonData.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
-            if (campeon[1].equals("LUCHADOR")){
-                campeonDataLu.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
-            }else if (campeon[1].equals("MAGO")){
-                campeonDataMa.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
-            }else if (campeon[1].equals("ASESINO")){
-                campeonDataAs.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
-            }else if (campeon[1].equals("TIRADOR")){
-                campeonDataTi.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
-            }else if (campeon[1].equals("TANQUE")){
-                campeonDataTa.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
-            }else if (campeon[1].equals("APOYO")){
-                campeonDataAp.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
+                }else if (campeon[1].equals("MAGO")){
+                    campeonDataMa.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
+
+                }else if (campeon[1].equals("ASESINO")){
+                    campeonDataAs.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
+
+                }else if (campeon[1].equals("TIRADOR")){
+                    campeonDataTi.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
+
+                }else if (campeon[1].equals("TANQUE")){
+                    campeonDataTa.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
+
+                }else if (campeon[1].equals("APOYO")){
+                    campeonDataAp.add(new ChampionFXML(campeon[0], campeon[1],campeon[2]));
+
+                }
             }
+            stats[0] = campeonDataLu.size();
+            stats[1] = campeonDataMa.size();
+            stats[2] = campeonDataAs.size();
+            stats[3] = campeonDataTi.size();
+            stats[4] = campeonDataTa.size();
+            stats[5] = campeonDataAp.size();
+        }else {
+            startRobo();
         }
-
     }
 
     public ObservableList<ChampionFXML> getCampeonData() {
@@ -89,15 +100,8 @@ public class Main extends Application {
     public ObservableList<ChampionFXML> getCampeonDataTa() {
         return campeonDataTa;
     }
+    public static int[] getStats (){ return stats;}
 
-    public void init(){
-        Robar robar = new Robar();
-        RoboEstadistica re = new RoboEstadistica();
-        File file = new File("lol.csv");
-        File file2 = new File("Estadisticas.csv");
-        if (!file.exists()) robar.start();
-        if (!file2.exists()) re.start();
-    }
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -109,6 +113,7 @@ public class Main extends Application {
     }
 
     public void initRootLayout() {
+
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
@@ -141,9 +146,11 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-    public void showBirthdayStatistics() {
+
+    public void showStatistics() {
         try {
             // Load the fxml file and create a new stage for the popup.
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("estadisticas.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
@@ -154,16 +161,19 @@ public class Main extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
-            // Set the persons into the controller.
-            EstadisticaController controller = loader.getController();
-            controller.setPersonData(stats);
-
             dialogStage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public void startRobo(){
+        Robar robar = new Robar();
+        robar.start();
+    }
+
+
 
     public Stage getPrimaryStage() {
         return primaryStage;
