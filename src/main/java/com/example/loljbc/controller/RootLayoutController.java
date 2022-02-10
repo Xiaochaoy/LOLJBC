@@ -4,12 +4,14 @@ import com.example.loljbc.Main;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 
 public class RootLayoutController {
 
     private Main main;
-    public static boolean cambio = true;
+    private boolean cambio = true;
 
     /**
      * Is called by the main application to give a reference back to itself.
@@ -50,14 +52,18 @@ public class RootLayoutController {
 
     @FXML
     private void handleCambiEstilo(){
-
+        TabPane tabPane = main.pillarTabPane();
         if (cambio){
+            tabPane.getStylesheets().clear();
             borderPane.getStylesheets().clear();
+            tabPane.getStylesheets().add(Main.class.getResource("estilo2.css").toExternalForm());
             borderPane.getStylesheets().add(Main.class.getResource("estilo2.css").toExternalForm());
             cambio = false;
         }else {
+            tabPane.getStylesheets().clear();
             borderPane.getStylesheets().clear();
-            borderPane.getStylesheets().add(Main.class.getResource("DarkTheme.css").toExternalForm());
+            tabPane.getStylesheets().add(Main.class.getResource("estilo1.css").toExternalForm());
+            borderPane.getStylesheets().add(Main.class.getResource("estilo1.css").toExternalForm());
             cambio = true;
         }
 

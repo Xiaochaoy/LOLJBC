@@ -5,7 +5,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loljbc.controller.CampeonController">
    <children>
-      <TabPane prefHeight="300.0" prefWidth="600.0" stylesheets="@DarkTheme.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPane" stylesheets="estilo1.css" prefHeight="300.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab text="Todo">
                <content>

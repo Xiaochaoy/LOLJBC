@@ -12,6 +12,8 @@ import javafx.scene.layout.AnchorPane;
 public class CampeonController {
 
     @FXML
+    private TabPane tabPane;
+    @FXML
     private TableView<ChampionFXML> lolTable;
     @FXML
     private TableView<ChampionFXML> lolTableLu;
@@ -119,6 +121,8 @@ public class CampeonController {
         historiaColumn4.setCellValueFactory(cellData -> cellData.getValue().historiaProperty());
         historiaColumn5.setCellValueFactory(cellData -> cellData.getValue().historiaProperty());
         historiaColumn6.setCellValueFactory(cellData -> cellData.getValue().historiaProperty());
-
+    }
+    public TabPane getTabPane() {
+        return tabPane;
     }
 }

@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -113,7 +114,6 @@ public class Main extends Application {
     }
 
     public void initRootLayout() {
-
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
@@ -121,10 +121,14 @@ public class Main extends Application {
             rootLayout = (BorderPane) loader.load();
             RootLayoutController controller = loader.getController();
             controller.setMain(this);
-
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
+
             primaryStage.setScene(scene);
+            primaryStage.setMaxHeight(364);
+            primaryStage.setMaxWidth(616);
+            primaryStage.setMinHeight(364);
+            primaryStage.setMinWidth(616);
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -139,12 +143,31 @@ public class Main extends Application {
 
             // Set person overview into the center of root layout.
             rootLayout.setCenter(personOverview);
+//            personOverview.setMaxHeight(rootLayout.getHeight());
+//            personOverview.setMaxWidth(rootLayout.getWidth());
 
             CampeonController controller = loader.getController();
             controller.setMain(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public TabPane pillarTabPane(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("campeones.fxml"));
+            AnchorPane personOverview = (AnchorPane) loader.load();
+
+            rootLayout.setCenter(personOverview);
+
+            CampeonController controller = loader.getController();
+            controller.setMain(this);
+            return controller.getTabPane();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void showStatistics() {
@@ -172,8 +195,6 @@ public class Main extends Application {
         Robar robar = new Robar();
         robar.start();
     }
-
-
 
     public Stage getPrimaryStage() {
         return primaryStage;

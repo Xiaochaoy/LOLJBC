@@ -33,7 +33,7 @@
 }
 
 .table-view .column-header-background {
-    -fx-background-color: transparent;
+    -fx-background-color: rgba(4, 16, 143, 0);
 }
 
 .table-view .column-header, .table-view .filler {
@@ -51,7 +51,7 @@
 .table-view .column-header .label {
     -fx-font-size: 20pt;
     -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: #1f1f1f;
+    -fx-text-fill: #030bb2;
     -fx-alignment: center-left;
     -fx-opacity: 1;
 }
@@ -70,17 +70,17 @@
 }
 
 .menu-bar {
-    -fx-background-color: derive(#efefef,20%);
+    -fx-background-color: derive(#05188c,20%);
 }
 
 .context-menu {
-    -fx-background-color: derive(#d7d0d0,50%);
+    -fx-background-color: derive(#101010,50%);
 }
 
 .menu-bar .label {
     -fx-font-size: 14pt;
     -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: #090909;
+    -fx-text-fill: #f8f8f8;
     -fx-opacity: 0.9;
 }
 
@@ -135,7 +135,7 @@
 
 .button:default {
     -fx-background-color: -fx-focus-color;
-    -fx-text-fill: #3b1919;
+    -fx-text-fill: #efe7e7;
 }
 
 .button:default:hover {
@@ -143,23 +143,23 @@
 }
 
 .tab-pane {
-    -fx-background-color: #693838;
+    -fx-background-color: rgba(5, 77, 238, 0.4);
 }
 .tab {
-    -fx-background-color: #333333;
+    -fx-background-color: #ece6e6;
 }
 .tab-pane>*.tab-header-area>*.tab-header-background
 {
-    -fx-background-color: -fx-outer-border, -fx-text-box-border, #333333;
+    -fx-background-color: -fx-outer-border, -fx-text-box-border, #eae0e0;
 }
 .tab-label {
-    -fx-text-fill: #e6e6e6;
+    -fx-text-fill: #030bb2;
 }
 .tab:selected .tab-label {
-    -fx-text-fill: #09f3f3;
+    -fx-text-fill: #f6f1f1;
 }
 .tab:selected {
-    -fx-background-color: #ef0505;
+    -fx-background-color: #0721d2;
 }
 .tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
     -fx-border-radius: 0px;
