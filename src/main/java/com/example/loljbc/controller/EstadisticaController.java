@@ -19,16 +19,19 @@ import java.util.ResourceBundle;
 
 public class EstadisticaController implements Initializable {
 
+    // la grafica que tengo
     @FXML
     private PieChart pieChart;
 
     int[] stats;
 
 
+    // cuando inicialize meto los datos en la grafica
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         stats = Main.getStats();
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                // poner el nombre y un valor
                 new PieChart.Data("LUCHADOR",stats[0]),
                 new PieChart.Data("MAGO",stats[1]),
                 new PieChart.Data("ASESINO",stats[2]),
@@ -36,12 +39,14 @@ public class EstadisticaController implements Initializable {
                 new PieChart.Data("TANQUE",stats[4]),
                 new PieChart.Data("APOYO",stats[5]));
 
+        // esto para que me muestra de tal forma
         pieChartData.forEach(data ->
                 data.nameProperty().bind(
                         Bindings.concat(
                                 data.getName(), " ", (int) data.getPieValue()
                         )
                 ));
+        // meter en la grafica
         pieChart.getData().addAll(pieChartData);
     }
 }

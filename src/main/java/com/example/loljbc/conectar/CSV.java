@@ -41,6 +41,7 @@ public class CSV {
     public CSV() {
     }
 
+    // Para leer el fichero lol.csv y poner lo en una lista de String[]
     public List<String[]> readAll() throws Exception {
         Reader reader = Files.newBufferedReader(Paths.get("lol.csv"));
         CSVReader csvReader = new CSVReader(reader);

@@ -9,8 +9,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
+// Controlador que controla el fichero de campeon.fxml
 public class CampeonController {
 
+    // los variables que tengo en el fxml
     @FXML
     private TabPane tabPane;
     @FXML
@@ -82,6 +84,7 @@ public class CampeonController {
     public CampeonController() {
     }
 
+    // recibir el main y pillarme los datos de cada lista
     public void setMain(Main main) {
         this.main = main;
 
@@ -95,6 +98,7 @@ public class CampeonController {
         lolTableTa.setItems(main.getCampeonDataTa());
     }
 
+    // cuando inicialize este controller, asigna los datos a cada columna
     @FXML
     private void initialize() {
         // Initialize the person table with the two columns.
@@ -122,6 +126,7 @@ public class CampeonController {
         historiaColumn5.setCellValueFactory(cellData -> cellData.getValue().historiaProperty());
         historiaColumn6.setCellValueFactory(cellData -> cellData.getValue().historiaProperty());
     }
+    // getter de tabpane
     public TabPane getTabPane() {
         return tabPane;
     }

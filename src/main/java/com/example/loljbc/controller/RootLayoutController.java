@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 
 public class RootLayoutController {
 
+    // variables
     private Main main;
     private boolean cambio = true;
 
@@ -25,11 +26,13 @@ public class RootLayoutController {
     @FXML
     private BorderPane borderPane;
 
+    // cuando clique que salga de programa
     @FXML
     private void handleExit() {
         System.exit(0);
     }
 
+    // cuando clique que muestre info de l'aplicacion
     @FXML
     private void handleAbout() {
 
@@ -40,22 +43,27 @@ public class RootLayoutController {
         a.show();
     }
 
+    // cuando clique que muestre la grafica
     @FXML
     private void handleShowStatistics() {
         main.showStatistics();
     }
 
+    // cuando clique que comienze a robar info
     @FXML
     private void handleStartRobo(){
         main.startRobo();
     }
 
+    // cuando clique que cambie el estilo y si vuelve a clicar volvera el estilo
     @FXML
     private void handleCambiEstilo(){
         TabPane tabPane = main.pillarTabPane();
         if (cambio){
+            // borrar los ficheros css aginados.
             tabPane.getStylesheets().clear();
             borderPane.getStylesheets().clear();
+            // asignarles otro fichero
             tabPane.getStylesheets().add(Main.class.getResource("estilo2.css").toExternalForm());
             borderPane.getStylesheets().add(Main.class.getResource("estilo2.css").toExternalForm());
             cambio = false;
